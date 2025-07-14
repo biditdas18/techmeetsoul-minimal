@@ -60,6 +60,8 @@ function App() {
         <meta name="twitter:image" content="/bidit-og.jpeg" />
         <meta name="twitter:site" content="@biditdas18" />
 
+        <meta name="google-site-verification" content="qn7JFjT9cEF5QAHuIQh5BVkNw67IsVn252KfGnMwfBM" />
+
         <link rel="canonical" href="https://techmeetssoul.vercel.app" />
       </Helmet>
 
