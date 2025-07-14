@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import MeteorCanvas from './components/MeteorCanvas';
 import projects from './data/projects.json';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   const [activeSection, setActiveSection] = useState('');
@@ -158,6 +159,8 @@ function App() {
           </motion.p>
         </motion.div>
       </section>
+
+      <SpeedInsights />
     </div>
   );
 }
