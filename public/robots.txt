@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://techmeetssoul.vercel.app/sitemap.xml
+
