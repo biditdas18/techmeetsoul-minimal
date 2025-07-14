@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Essence",
+    "description": "A music recommendation engine that captures a user's emotional resonance and aligns it with songs using multi-label emotion classification and poetic emotional profiling.",
+    "link": "https://github.com/biditdas18/essence-glimpse"
+  },
+  {
+    "title": "ShiftOS (Concept)",
+    "description": "A futuristic thin-client OS that boots into the cloud with premium I/O and aesthetic freedom. Users can choose computing environments (Windows, ML, Gaming) at boot.",
+    "link": ""
+  },
+  {
+    "title": "Cosmic Ray Pattern Analysis (ML Research)",
+    "description": "A machine learning research initiative focused on uncovering patterns in cosmic ray interactions, with future applications in space weather forecasting and anomaly detection.",
+    "link": ""
+  },
+  {
+    "title": "Medium Blog Series: Tech Meets Soul",
+    "description": "A growing library of reflective and technical writing on machine learning, symbolism in AI, and emotionally intelligent systems.",
+    "link": "https://medium.com/@biditdas18"
+  }
+]
+
