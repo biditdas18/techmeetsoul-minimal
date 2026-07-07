@@ -232,7 +232,7 @@ function App() {
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }}>
               <h3 className="text-lg font-semibold">Reviewer & Program Committee Member, UncertaiNLP Workshop @ EMNLP 2026</h3>
               <p className="text-sm opacity-90 mt-1">
-                Volunteered to review for the workshop and was added to the program committee. Verifiable on OpenReview.
+                Serving on the program committee for the workshop on uncertainty estimation in NLP. Verifiable on OpenReview.
               </p>
             </motion.div>
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }}>
