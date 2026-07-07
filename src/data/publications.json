@@ -1,0 +1,34 @@
+[
+  {
+    "authors": "Zhang, Y., Das, B., & Qiao, F.",
+    "year": "2020",
+    "title": "Sybil Attack Detection and Prevention in VANETs: A Survey",
+    "venue": "Proceedings of the Future Technologies Conference (FTC), Springer, pp. 762–779",
+    "note": "13 citations",
+    "link": "https://link.springer.com/chapter/10.1007/978-3-030-63092-8_51"
+  },
+  {
+    "authors": "Das, B.",
+    "year": "2026",
+    "title": "Signal-to-Noise Ratio Detection in Educational Video Content: A Binary Classification Framework Using Transcript Embeddings",
+    "venue": "SSRN",
+    "note": "",
+    "link": "https://ssrn.com/abstract=6866745"
+  },
+  {
+    "authors": "Das, B.",
+    "year": "2026",
+    "title": "Essence: A Personal Embedding Cluster Framework for Depth-Optimized Recommendations",
+    "venue": "SSRN",
+    "note": "",
+    "link": "https://ssrn.com/abstract=6866919"
+  },
+  {
+    "authors": "Das, B.",
+    "year": "2026",
+    "title": "CRUCIBLE: A Multi-Agent Framework for Automated Annotation Rubric Calibration via Iterative Inter-Judge Disagreement Resolution",
+    "venue": "Independent research",
+    "note": "",
+    "link": "https://github.com/biditdas18/rubric-calibration-agent"
+  }
+]

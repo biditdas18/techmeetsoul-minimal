@@ -1,0 +1,30 @@
+[
+  {
+    "pillar": "Reducing the cost of building AI systems",
+    "title": "CRUCIBLE",
+    "description": "A multi-agent framework that automatically calibrates annotation rubrics by diagnosing disagreement between LLM judges, replacing manual rubric engineering with a converging iterative loop. Raised inter-judge agreement from chance-level to as high as 96.7% on real annotation data. Currently under review; its methodology underlies the published SNR-Detector paper.",
+    "link": "https://github.com/biditdas18/rubric-calibration-agent",
+    "linkLabel": "View code →"
+  },
+  {
+    "pillar": "Enabling AI to run outside centralized infrastructure",
+    "title": "SNR-Detector",
+    "description": "A binary classification framework that scores educational video content by genuine signal versus noise, using transcript embeddings and a lightweight classifier that runs independently of a hosted LLM API. Achieves F1 = 0.871 with 0.964 recall on high-signal content. A local-classifier extension is in progress.",
+    "link": "https://github.com/biditdas18/snr-detector",
+    "linkLabel": "View code →"
+  },
+  {
+    "pillar": "Personalizing AI without expensive retraining",
+    "title": "Essence",
+    "description": "A personal embedding-cluster framework for music recommendation that models individual taste directly from listening history, improving long-tail recovery without fine-tuning the underlying model.",
+    "link": "https://github.com/biditdas18/essence-glimpse",
+    "linkLabel": "View code →"
+  },
+  {
+    "pillar": "Personalizing AI without expensive retraining",
+    "title": "Asterism",
+    "description": "A forthcoming tool extending the personalization work in Essence to a broader class of recommendation problems. Publishing publicly in the coming weeks.",
+    "link": "",
+    "linkLabel": ""
+  }
+]
