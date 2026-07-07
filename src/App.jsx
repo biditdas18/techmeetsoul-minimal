@@ -94,7 +94,7 @@ function App() {
 
       <section className="min-h-screen w-full relative overflow-hidden">
         {/* Background */}
-        <img src={heroBg} alt="Hero Background" className="absolute w-full h-full object-cover z-0" />
+        <img src={heroBg} alt="Hero Background" className="absolute top-0 w-full h-[167%] object-cover object-top z-0" />
         <div className="absolute w-full h-full bg-black bg-opacity-20 z-10" />
 
         {/* Meteor Canvas limited to 60% height */}
@@ -223,7 +223,7 @@ function App() {
         </motion.div>
       </section>
 
-      <section id="recognition" className="min-h-screen bg-gray-900 text-white px-4 md:px-8 py-20">
+      <section id="recognition" className="min-h-[50vh] bg-gray-900 text-white px-4 md:px-8 py-20">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} transition={{ staggerChildren: 0.2 }}>
           <motion.h2 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.8 }} className="text-3xl font-bold mb-8">
             Recognition & Service
@@ -257,7 +257,7 @@ function App() {
             <p><a href="https://www.linkedin.com/in/biditdas18/" className="text-blue-400 underline" target="_blank" rel="noreferrer">LinkedIn</a></p>
             <p><a href="https://github.com/biditdas18" className="text-blue-400 underline" target="_blank" rel="noreferrer">GitHub</a></p>
             <p><a href="https://scholar.google.com/citations?user=9dLYRD4AAAAJ&hl=en" className="text-blue-400 underline" target="_blank" rel="noreferrer">Google Scholar</a></p>
-            <p><a href="https://medium.com/@biditdas18" className="text-blue-400 underline" target="_blank" rel="noreferrer">Medium — I write here</a></p>
+            <p><a href="https://medium.com/@biditdas18" className="text-blue-400 underline" target="_blank" rel="noreferrer">Medium</a></p>
           </motion.div>
         </motion.div>
       </section>
