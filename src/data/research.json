@@ -23,7 +23,7 @@
   {
     "pillar": "Personalizing AI without expensive retraining",
     "title": "Asterism",
-    "description": "A forthcoming tool extending the personalization work in Essence to a broader class of recommendation problems. Publishing publicly in the coming weeks.",
+    "description": "A tool extending the personalization work in Essence to a broader class of recommendation problems. Code is public and usable; the accompanying research paper is pending.",
     "link": "https://github.com/biditdas18/asterism",
     "linkLabel": "View code →"
   }
