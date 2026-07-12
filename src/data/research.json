@@ -17,14 +17,14 @@
     "pillar": "Personalizing AI without expensive retraining",
     "title": "Essence",
     "description": "A personal embedding-cluster framework for music recommendation that models individual taste directly from listening history, improving long-tail recovery without fine-tuning the underlying model.",
-    "link": "https://github.com/biditdas18/essence-glimpse",
+    "link": "https://github.com/biditdas18/essence",
     "linkLabel": "View code →"
   },
   {
     "pillar": "Personalizing AI without expensive retraining",
     "title": "Asterism",
     "description": "A forthcoming tool extending the personalization work in Essence to a broader class of recommendation problems. Publishing publicly in the coming weeks.",
-    "link": "",
-    "linkLabel": ""
+    "link": "https://github.com/biditdas18/asterism",
+    "linkLabel": "View code →"
   }
 ]
