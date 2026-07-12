@@ -23,7 +23,7 @@
   {
     "pillar": "Personalizing AI without expensive retraining",
     "title": "Asterism",
-    "description": "A tool extending the personalization work in Essence to a broader class of recommendation problems. Code is public and usable; the accompanying research paper is pending.",
+    "description": "A local-first personal knowledge graph for LLM conversations that uses Hebbian learning — edges between concepts strengthen with use and decay when unused — to give models persistent, evolving context without fine-tuning or cloud storage. Code is public and usable; a formal research paper is in preparation.",
     "link": "https://github.com/biditdas18/asterism",
     "linkLabel": "View code →"
   }
