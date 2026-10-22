@@ -44,20 +44,20 @@ function App() {
     <div className="App" style={{ scrollBehavior: 'smooth' }}>
       <Helmet>
         <title>Bidit Das – AI Researcher | Model Efficiency & Decentralized Intelligence</title>
-        <meta name="description" content="Bidit Das is an AI researcher and AWS Escalation Engineer working on model efficiency, decentralized AI systems, and personalization without retraining." />
+        <meta name="description" content="Bidit Das is an AI researcher and AWS Escalation Engineer II working on model efficiency, decentralized AI systems, and personalization without retraining." />
         <meta name="keywords" content="Bidit Das, AI Researcher, Machine Learning, LLM Evaluation, Model Efficiency, Recommender Systems, AWS, University of Houston" />
         <meta name="author" content="Bidit Das" />
         <meta name="robots" content="index, follow" />
 
         <meta property="og:title" content="Bidit Das – AI Researcher | Model Efficiency & Decentralized Intelligence" />
-        <meta property="og:description" content="Research on model efficiency, decentralized AI, and personalization without retraining, plus published work on LLM evaluation and recommendation systems." />
+        <meta property="og:description" content="Research on model efficiency, decentralized AI, and personalization without retraining, with work on LLM evaluation, memory, and recommendation systems." />
         <meta property="og:image" content="/bidit-og.jpeg" />
         <meta property="og:url" content="https://techmeetssoul.vercel.app" />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Bidit Das – AI Researcher | Model Efficiency & Decentralized Intelligence" />
-        <meta name="twitter:description" content="Research on model efficiency, decentralized AI, and personalization without retraining, plus published work on LLM evaluation and recommendation systems." />
+        <meta name="twitter:description" content="Research on model efficiency, decentralized AI, and personalization without retraining, with work on LLM evaluation, memory, and recommendation systems." />
         <meta name="twitter:image" content="/bidit-og.jpeg" />
         <meta name="twitter:site" content="@biditdas18" />
 
@@ -143,7 +143,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 1 }}
           >
-            AWS Escalation Engineer · M.S. Electrical Engineering, University of Houston
+            AWS Escalation Engineer II · M.S. Electrical Engineering, University of Houston
           </motion.p>
         </div>
       </section>
@@ -155,13 +155,13 @@ function App() {
             About
           </motion.h2>
           <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }} className="text-lg max-w-4xl mb-10">
-            I'm an AI researcher and AWS Escalation Engineer. Most of the field is betting on scale: bigger models, more compute, more centralized infrastructure. I find the opposite direction more interesting. How much intelligence can you squeeze out of a machine sitting on your desk? Can training data build itself without armies of human annotators? Can a model learn <em>you</em> without being retrained? These questions keep me up at night, and I answer them the only way I trust: build the system, measure it honestly, publish the result.
+            I'm an AI researcher and AWS Escalation Engineer II. Most of the field is betting on scale: bigger models, more compute, more centralized infrastructure. I find the opposite direction more interesting. How much intelligence can you squeeze out of a machine sitting on your desk? Can training data build itself without armies of human annotators? Can a model learn <em>you</em> without being retrained? These questions keep me up at night, and I answer them the only way I trust: build the system, measure it honestly, publish the result.
           </motion.p>
           <motion.h2 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.8 }} className="text-3xl font-bold mb-6">
             Origin
           </motion.h2>
           <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }} className="text-lg max-w-4xl">
-            This work started with a personal problem. Experimenting with modern AI is expensive. I felt that as a working professional. A student with a great idea and no budget feels it much more. Around the same time, I noticed something else: people share everything with AI. Journals, medical reports, their worst days. All of it flows through someone else's servers. Sooner or later, privacy will matter as much as intelligence. Both problems point to the same answer: capable AI that runs locally, on your own machine, owned by you. I had worked on a version of this problem before, in graduate research on securing decentralized vehicle networks without a central authority (Springer FTC 2020, 13 citations). I've been pulling on that thread ever since. Everything below is that loop in motion.
+            This work started with a personal problem. Experimenting with modern AI is expensive. I felt that as a working professional. A student with a great idea and no budget feels it much more. Around the same time, I noticed something else: people share everything with AI. Journals, medical reports, their worst days. All of it flows through someone else's servers. Sooner or later, privacy will matter as much as intelligence. Both problems point to the same answer: capable AI that runs locally, on your own machine, owned by you. I had worked on a version of this problem before, in graduate research on securing decentralized vehicle networks without a central authority (Springer FTC 2020). I've been pulling on that thread ever since. Everything below is that loop in motion.
           </motion.p>
         </motion.div>
       </section>
@@ -194,7 +194,7 @@ function App() {
       <section id="publications" className="min-h-screen bg-gray-950 text-white px-4 md:px-8 py-20">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} transition={{ staggerChildren: 0.2 }}>
           <motion.h2 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.8 }} className="text-3xl font-bold mb-8">
-            Publications
+            Papers & Publications
           </motion.h2>
           <div className="space-y-6 max-w-4xl">
             {publications.map((pub, index) => (
@@ -205,7 +205,7 @@ function App() {
                   {pub.note && ` · ${pub.note}`}
                 </p>
                 <a href={pub.link} target="_blank" rel="noopener noreferrer" className="text-blue-400 underline text-sm inline-block mt-2">
-                  View →
+                  {pub.linkLabel || 'View paper →'}
                 </a>
               </motion.div>
             ))}
@@ -230,6 +230,14 @@ function App() {
           </motion.h2>
           <div className="space-y-8 max-w-3xl">
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }}>
+              <h3 className="text-lg font-semibold">Reviewer, ACM RecSys 2026</h3>
+              <p className="text-sm opacity-90 mt-1">Completed peer reviews for the ACM Conference on Recommender Systems.</p>
+            </motion.div>
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }}>
+              <h3 className="text-lg font-semibold">Reviewer, REALM 2026</h3>
+              <p className="text-sm opacity-90 mt-1">Completed peer reviews for REALM 2026.</p>
+            </motion.div>
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }}>
               <h3 className="text-lg font-semibold">Reviewer & Program Committee Member, UncertaiNLP Workshop @ EMNLP 2026</h3>
               <p className="text-sm opacity-90 mt-1">
                 Serving on the program committee for the workshop on uncertainty estimation in NLP. Verifiable on OpenReview.
@@ -238,7 +246,7 @@ function App() {
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }}>
               <h3 className="text-lg font-semibold">Master of Ceremonies, ODSC AI East 2026</h3>
               <p className="text-sm opacity-90 mt-1">
-                Invited to host after submitting a well-received research proposal to the conference.
+                Served as a master of ceremonies at ODSC AI East 2026.
               </p>
             </motion.div>
           </div>

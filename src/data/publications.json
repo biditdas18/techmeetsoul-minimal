@@ -1,18 +1,55 @@
 [
   {
-    "authors": "Zhang, Y., Das, B., & Qiao, F.",
-    "year": "2020",
-    "title": "Sybil Attack Detection and Prevention in VANETs: A Survey",
-    "venue": "Proceedings of the Future Technologies Conference (FTC), Springer, pp. 762–779",
-    "note": "13 citations",
-    "link": "https://link.springer.com/chapter/10.1007/978-3-030-63092-8_51"
+    "authors": "Das, B.",
+    "year": "2026",
+    "title": "CRUCIBLE: A Multi-Agent Framework for Automated Annotation Rubric Calibration via Iterative Inter-Judge Disagreement Resolution",
+    "venue": "ATRACC, AAAI Fall Symposium Series 2026",
+    "note": "Accepted · Camera-ready submitted",
+    "link": "https://ssrn.com/abstract=7025019",
+    "linkLabel": "View preprint →"
+  },
+  {
+    "authors": "Das, B.",
+    "year": "2026",
+    "title": "Asterism: A Hebbian-Weighted Knowledge Graph as a Priority Index over Long-Term LLM Memory",
+    "venue": "NORA, AACL-IJCNLP 2026",
+    "note": "Accepted · Camera-ready submitted",
+    "link": "https://ssrn.com/abstract=7257118",
+    "linkLabel": "View preprint →"
+  },
+  {
+    "authors": "Das, B.",
+    "year": "2026",
+    "title": "Peer-Isolated Recommendation: When Content-Only Personalization Beats Collaborative Signal, and When It Doesn’t",
+    "venue": "NewInML, NeurIPS 2026",
+    "note": "Accepted · Non-archival workshop",
+    "link": "https://github.com/biditdas18/essence",
+    "linkLabel": "View research →"
+  },
+  {
+    "authors": "Das, B.",
+    "year": "2026",
+    "title": "When Is a User’s Own History Enough? A Controlled Study of Peer-Isolated Personal Recommendation",
+    "venue": "SOICT 2026",
+    "note": "Accepted · Expanded Essence study; proceedings publication subject to final requirements",
+    "link": "https://github.com/biditdas18/essence",
+    "linkLabel": "View research →"
+  },
+  {
+    "authors": "Das, B.",
+    "year": "2026",
+    "title": "Does Symbolic Grounding Inoculate LLM Agents Against Conformity? A Pre-Registered Null and a Benchmark-Saturation Obstacle",
+    "venue": "NeSyDebates, KSE 2026",
+    "note": "Accepted for presentation · Remote presentation is non-archival",
+    "link": "https://github.com/biditdas18/dissent",
+    "linkLabel": "View research →"
   },
   {
     "authors": "Das, B.",
     "year": "2026",
     "title": "Signal-to-Noise Ratio Detection in Educational Video Content: A Binary Classification Framework Using Transcript Embeddings",
     "venue": "SSRN",
-    "note": "",
+    "note": "Preprint; not a peer-reviewed venue publication",
     "link": "https://ssrn.com/abstract=6866745"
   },
   {
@@ -20,15 +57,15 @@
     "year": "2026",
     "title": "Essence: A Personal Embedding Cluster Framework for Depth-Optimized Recommendations",
     "venue": "SSRN",
-    "note": "",
+    "note": "Early Essence preprint; see subsequent accepted studies above",
     "link": "https://ssrn.com/abstract=6866919"
   },
   {
-    "authors": "Das, B.",
-    "year": "2026",
-    "title": "CRUCIBLE: A Multi-Agent Framework for Automated Annotation Rubric Calibration via Iterative Inter-Judge Disagreement Resolution",
-    "venue": "Independent research",
-    "note": "",
-    "link": "https://github.com/biditdas18/rubric-calibration-agent"
+    "authors": "Zhang, Y., Das, B., & Qiao, F.",
+    "year": "2020",
+    "title": "Sybil Attack Detection and Prevention in VANETs: A Survey",
+    "venue": "Proceedings of the Future Technologies Conference (FTC), Springer, pp. 762–779",
+    "note": "Published · 12 citations on Google Scholar (October 22, 2026)",
+    "link": "https://link.springer.com/chapter/10.1007/978-3-030-63092-8_51"
   }
 ]

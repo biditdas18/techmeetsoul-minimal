@@ -2,29 +2,36 @@
   {
     "pillar": "Reducing the cost of building AI systems",
     "title": "CRUCIBLE",
-    "description": "A multi-agent framework that automatically calibrates annotation rubrics by diagnosing disagreement between LLM judges, replacing manual rubric engineering with a converging iterative loop. Raised inter-judge agreement from chance-level to as high as 96.7% on real annotation data. Currently under review; its methodology underlies the published SNR-Detector paper.",
+    "description": "A multi-agent framework for calibrating annotation rubrics through iterative diagnosis of disagreement between LLM judges. Accepted at ATRACC, AAAI Fall Symposium Series 2026; camera-ready submitted. Code and evaluation artifacts are available in the repository.",
     "link": "https://github.com/biditdas18/rubric-calibration-agent",
     "linkLabel": "View code →"
   },
   {
     "pillar": "Enabling AI to run outside centralized infrastructure",
     "title": "SNR-Detector",
-    "description": "A binary classification framework that scores educational video content by genuine signal versus noise, using transcript embeddings and a lightweight classifier that runs independently of a hosted LLM API. Achieves F1 = 0.871 with 0.964 recall on high-signal content. A local-classifier extension is in progress.",
+    "description": "A binary classification framework for distinguishing signal from noise in educational video transcripts using embeddings and a lightweight classifier. The research manuscript is available as an SSRN preprint; code and evaluation artifacts are public.",
     "link": "https://github.com/biditdas18/snr-detector",
     "linkLabel": "View code →"
   },
   {
     "pillar": "Personalizing AI without expensive retraining",
     "title": "Essence",
-    "description": "A personal embedding-cluster framework for music recommendation that models individual taste directly from listening history, improving long-tail recovery without fine-tuning the underlying model.",
+    "description": "Research on peer-isolated personalization: when an individual user’s own history is sufficient for recommendation, and when collaborative signals help. The longer-term aim is to capture a listener’s subjective emotional experience. Accepted at NewInML, NeurIPS 2026 (non-archival); an expanded controlled study is accepted at SOICT 2026.",
     "link": "https://github.com/biditdas18/essence",
     "linkLabel": "View code →"
   },
   {
     "pillar": "Personalizing AI without expensive retraining",
     "title": "Asterism",
-    "description": "A local-first personal knowledge graph for LLM conversations that uses Hebbian learning — edges between concepts strengthen with use and decay when unused — to give models persistent, evolving context without fine-tuning or cloud storage. Code is public and usable; a formal research paper is in preparation.",
+    "description": "A local-first, Hebbian-weighted knowledge graph that acts as a priority index over long-term LLM memory without model fine-tuning. Accepted at NORA, AACL-IJCNLP 2026; camera-ready submitted. Storage is local; external model calls depend on the chosen backend.",
     "link": "https://github.com/biditdas18/asterism",
     "linkLabel": "View code →"
+  },
+  {
+    "pillar": "Evaluating the limits of LLM agents",
+    "title": "Symbolic Grounding & Conformity",
+    "description": "A pre-registered investigation of whether symbolic grounding protects LLM agents against conformity, reporting a null result and a benchmark-saturation obstacle. Accepted for presentation at NeSyDebates, KSE 2026; the remote presentation route is non-archival.",
+    "link": "https://github.com/biditdas18/dissent",
+    "linkLabel": "View research →"
   }
 ]
