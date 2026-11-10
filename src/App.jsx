@@ -1,278 +1,47 @@
-import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
-import heroBg from './assets/hero-bg.png';
-import { motion } from 'framer-motion';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import MeteorCanvas from './components/MeteorCanvas';
-import research from './data/research.json';
-import publications from './data/publications.json';
-import { SpeedInsights } from '@vercel/speed-insights/react';
+import { useEffect, useState } from 'react';
+import { publications, socialLinks } from './data/profile';
+import './profile.css';
 
-function App() {
-  const [activeSection, setActiveSection] = useState('');
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-
-    const handleScroll = () => {
-      const sections = ['about', 'research', 'publications', 'recognition', 'contact'];
-      const scrollY = window.scrollY + window.innerHeight / 2;
-
-      for (let id of sections) {
-        const el = document.getElementById(id);
-        if (el) {
-          const offsetTop = el.offsetTop;
-          const offsetBottom = offsetTop + el.offsetHeight;
-          if (scrollY >= offsetTop && scrollY < offsetBottom) {
-            setActiveSection(id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinkClass = (id) =>
-    `${activeSection === id ? 'underline text-cyan-400' : 'hover:underline'} block px-4 py-2`;
-
-  return (
-    <div className="App" style={{ scrollBehavior: 'smooth' }}>
-      <Helmet>
-        <title>Bidit Das – AI Researcher | Model Efficiency & Decentralized Intelligence</title>
-        <meta name="description" content="Bidit Das is an AI researcher and AWS Escalation Engineer II working on model efficiency, decentralized AI systems, and personalization without retraining." />
-        <meta name="keywords" content="Bidit Das, AI Researcher, Machine Learning, LLM Evaluation, Model Efficiency, Recommender Systems, AWS, University of Houston" />
-        <meta name="author" content="Bidit Das" />
-        <meta name="robots" content="index, follow" />
-
-        <meta property="og:title" content="Bidit Das – AI Researcher | Model Efficiency & Decentralized Intelligence" />
-        <meta property="og:description" content="Research on model efficiency, decentralized AI, and personalization without retraining, with work on LLM evaluation, memory, and recommendation systems." />
-        <meta property="og:image" content="/bidit-og.jpeg" />
-        <meta property="og:url" content="https://techmeetssoul.vercel.app" />
-        <meta property="og:type" content="website" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Bidit Das – AI Researcher | Model Efficiency & Decentralized Intelligence" />
-        <meta name="twitter:description" content="Research on model efficiency, decentralized AI, and personalization without retraining, with work on LLM evaluation, memory, and recommendation systems." />
-        <meta name="twitter:image" content="/bidit-og.jpeg" />
-        <meta name="twitter:site" content="@biditdas18" />
-
-        <meta name="google-site-verification" content="FNMe_UhWowDzY3UdbxRbj_umlkvGGHWdF9gP3pHTRQY" />
-
-        <link rel="canonical" href="https://techmeetssoul.vercel.app" />
-      </Helmet>
-
-      <header className="fixed top-0 left-0 w-full bg-black bg-opacity-60 text-white z-50">
-        <div className="flex justify-between items-center px-6 py-4 md:justify-center md:space-x-6">
-          <div className="md:hidden">
-            <button onClick={() => setMenuOpen(!menuOpen)} className="text-white focus:outline-none">
-              ☰
-            </button>
-          </div>
-          <nav className="hidden md:flex space-x-6">
-            <a href="#about" className={navLinkClass('about')}>About</a>
-            <a href="#research" className={navLinkClass('research')}>Research</a>
-            <a href="#publications" className={navLinkClass('publications')}>Publications</a>
-            <a href="#recognition" className={navLinkClass('recognition')}>Recognition</a>
-            <a href="#contact" className={navLinkClass('contact')}>Contact</a>
-          </nav>
-        </div>
-        {menuOpen && (
-          <div className="md:hidden flex flex-col items-start px-6 pb-4 bg-black bg-opacity-80">
-            <a href="#about" className={navLinkClass('about')} onClick={() => setMenuOpen(false)}>About</a>
-            <a href="#research" className={navLinkClass('research')} onClick={() => setMenuOpen(false)}>Research</a>
-            <a href="#publications" className={navLinkClass('publications')} onClick={() => setMenuOpen(false)}>Publications</a>
-            <a href="#recognition" className={navLinkClass('recognition')} onClick={() => setMenuOpen(false)}>Recognition</a>
-            <a href="#contact" className={navLinkClass('contact')} onClick={() => setMenuOpen(false)}>Contact</a>
-          </div>
-        )}
-      </header>
-
-      <section className="min-h-screen w-full relative overflow-hidden">
-        {/* Background */}
-        <img src={heroBg} alt="Hero Background" className="absolute top-0 w-full h-[167%] object-cover object-top z-0" />
-        <div className="absolute w-full h-full bg-black bg-opacity-20 z-10" />
-
-        {/* Meteor Canvas limited to 60% height */}
-        <div className="absolute top-0 left-0 w-full h-[60%] z-20 pointer-events-none overflow-hidden">
-          <MeteorCanvas />
-        </div>
-
-        {/* Hero text content on top */}
-        <div className="relative z-30 flex flex-col items-center justify-center h-full pt-40 px-4 text-center">
-          <motion.h1
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 1.2 }}
-            variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
-            className="text-white text-4xl md:text-6xl font-extrabold tracking-wide drop-shadow-lg mb-4"
-          >
-            Bidit Das
-          </motion.h1>
-
-          <motion.p
-            className="text-cyan-300 text-lg md:text-2xl font-medium drop-shadow-md mt-2"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 1 }}
-            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
-          >
-            AI Researcher — Model Efficiency & Decentralized Intelligence
-          </motion.p>
-
-          <motion.p
-            className="text-white text-base md:text-xl font-light drop-shadow-md opacity-90 max-w-3xl mt-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 0.8, duration: 1.2 }}
-            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
-          >
-            Building AI systems that cost less to build, run outside centralized infrastructure, and personalize to individual users without expensive retraining.
-          </motion.p>
-
-          <motion.p
-            className="text-gray-300 text-sm md:text-base mt-6"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 1 }}
-          >
-            AWS Escalation Engineer II · M.S. Electrical Engineering, University of Houston
-          </motion.p>
-        </div>
-      </section>
-
-
-      <section id="about" className="min-h-screen bg-gray-950 text-white px-4 md:px-8 py-20">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} transition={{ staggerChildren: 0.2 }}>
-          <motion.h2 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.8 }} className="text-3xl font-bold mb-6">
-            About
-          </motion.h2>
-          <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }} className="text-lg max-w-4xl mb-10">
-            I'm an AI researcher and AWS Escalation Engineer II. Most of the field is betting on scale: bigger models, more compute, more centralized infrastructure. I find the opposite direction more interesting. How much intelligence can you squeeze out of a machine sitting on your desk? Can training data build itself without armies of human annotators? Can a model learn <em>you</em> without being retrained? These questions keep me up at night, and I answer them the only way I trust: build the system, measure it honestly, publish the result.
-          </motion.p>
-          <motion.h2 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.8 }} className="text-3xl font-bold mb-6">
-            Origin
-          </motion.h2>
-          <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }} className="text-lg max-w-4xl">
-            This work started with a personal problem. Experimenting with modern AI is expensive. I felt that as a working professional. A student with a great idea and no budget feels it much more. Around the same time, I noticed something else: people share everything with AI. Journals, medical reports, their worst days. All of it flows through someone else's servers. Sooner or later, privacy will matter as much as intelligence. Both problems point to the same answer: capable AI that runs locally, on your own machine, owned by you. I had worked on a version of this problem before, in graduate research on securing decentralized vehicle networks without a central authority (Springer FTC 2020). I've been pulling on that thread ever since. Everything below is that loop in motion.
-          </motion.p>
-        </motion.div>
-      </section>
-
-      <section id="research" className="min-h-screen bg-gray-900 text-white px-4 md:px-8 py-20">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} transition={{ staggerChildren: 0.2 }}>
-          <motion.h2 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.8 }} className="text-3xl font-bold mb-2">
-            Research
-          </motion.h2>
-          <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.8 }} className="text-base text-gray-400 mb-8 max-w-3xl">
-            Three connected problems: the cost of building AI systems, their dependence on centralized infrastructure, and the expense of personalizing them.
-          </motion.p>
-          <div className="grid gap-6 md:grid-cols-2">
-            {research.map((proj, index) => (
-              <motion.div key={index} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }} className="bg-gray-800 rounded-xl p-6 shadow-md hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/10 transition-transform duration-300">
-                <p className="text-xs uppercase tracking-wide text-cyan-400 mb-2">{proj.pillar}</p>
-                <h3 className="text-xl font-semibold mb-2">{proj.title}</h3>
-                <p className="text-sm opacity-90">{proj.description}</p>
-                {proj.link && (
-                  <a href={proj.link} target="_blank" rel="noopener noreferrer" className="text-blue-400 underline inline-block mt-4">
-                    {proj.linkLabel}
-                  </a>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
-      <section id="publications" className="min-h-screen bg-gray-950 text-white px-4 md:px-8 py-20">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} transition={{ staggerChildren: 0.2 }}>
-          <motion.h2 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.8 }} className="text-3xl font-bold mb-8">
-            Papers & Publications
-          </motion.h2>
-          <div className="space-y-6 max-w-4xl">
-            {publications.map((pub, index) => (
-              <motion.div key={index} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }} className="border-l-2 border-cyan-500/40 pl-4">
-                <p className="text-base md:text-lg font-medium">{pub.title}</p>
-                <p className="text-sm text-gray-400 mt-1">
-                  {pub.authors} ({pub.year}). {pub.venue}
-                  {pub.note && ` · ${pub.note}`}
-                </p>
-                <a href={pub.link} target="_blank" rel="noopener noreferrer" className="text-blue-400 underline text-sm inline-block mt-2">
-                  {pub.linkLabel || 'View paper →'}
-                </a>
-              </motion.div>
-            ))}
-          </div>
-          <motion.a
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-            transition={{ duration: 1 }}
-            href="https://scholar.google.com/citations?user=9dLYRD4AAAAJ&hl=en"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-8 text-cyan-400 underline"
-          >
-            Full profile on Google Scholar →
-          </motion.a>
-        </motion.div>
-      </section>
-
-      <section id="recognition" className="min-h-[50vh] bg-gray-900 text-white px-4 md:px-8 py-20">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} transition={{ staggerChildren: 0.2 }}>
-          <motion.h2 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.8 }} className="text-3xl font-bold mb-8">
-            Recognition & Service
-          </motion.h2>
-          <div className="space-y-8 max-w-3xl">
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }}>
-              <h3 className="text-lg font-semibold">Reviewer, ACM RecSys 2026</h3>
-              <p className="text-sm opacity-90 mt-1">Completed peer reviews for the ACM Conference on Recommender Systems.</p>
-            </motion.div>
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }}>
-              <h3 className="text-lg font-semibold">Reviewer, REALM 2026</h3>
-              <p className="text-sm opacity-90 mt-1">Completed peer reviews for REALM 2026.</p>
-            </motion.div>
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }}>
-              <h3 className="text-lg font-semibold">Reviewer & Program Committee Member, UncertaiNLP Workshop @ EMNLP 2026</h3>
-              <p className="text-sm opacity-90 mt-1">
-                Serving on the program committee for the workshop on uncertainty estimation in NLP. Verifiable on OpenReview.
-              </p>
-            </motion.div>
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }}>
-              <h3 className="text-lg font-semibold">Master of Ceremonies, ODSC AI East 2026</h3>
-              <p className="text-sm opacity-90 mt-1">
-                Served as a master of ceremonies at ODSC AI East 2026.
-              </p>
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
-
-      <section id="contact" className="min-h-screen bg-gray-900 text-white px-4 md:px-8 py-20">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} transition={{ staggerChildren: 0.2 }}>
-          <motion.h2 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.8 }} className="text-3xl font-bold mb-4">
-            Contact
-          </motion.h2>
-          <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }} className="text-lg max-w-3xl mb-6 opacity-90">
-            Interested in connecting or working together? Reach out on LinkedIn.
-          </motion.p>
-          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 1 }} className="text-lg max-w-3xl space-y-2">
-            <p><a href="https://www.linkedin.com/in/biditdas18/" className="text-blue-400 underline" target="_blank" rel="noreferrer">LinkedIn</a></p>
-            <p><a href="https://github.com/biditdas18" className="text-blue-400 underline" target="_blank" rel="noreferrer">GitHub</a></p>
-            <p><a href="https://scholar.google.com/citations?user=9dLYRD4AAAAJ&hl=en" className="text-blue-400 underline" target="_blank" rel="noreferrer">Google Scholar</a></p>
-            <p><a href="https://medium.com/@biditdas18" className="text-blue-400 underline" target="_blank" rel="noreferrer">Medium</a></p>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      <SpeedInsights />
-    </div>
-  );
+function SocialLinks() {
+ return <div className="socials">{socialLinks.map(([name,url,path]) => name === 'Email' ? <span key={name} className="masked-contact" aria-label="Email address masked"><svg viewBox="0 0 24 24" aria-hidden="true" dangerouslySetInnerHTML={{__html:path}} /><span>b••••@••••.com</span></span> : <a key={name} href={url} aria-label={name}><svg viewBox="0 0 24 24" aria-hidden="true" dangerouslySetInnerHTML={{__html:path}} /><span className="social-label">{name}</span></a>)}</div>;
 }
 
-export default App;
+function Publications() {
+ return <div id="publication-list">{[...new Set(publications.map(p=>p.year))].map(year=><div key={year}><h3 className="year-heading" id={'year-'+year}>{year}</h3>{publications.filter(p=>p.year===year).map(p=><article className="publication" id={'paper-'+p.id} key={p.id}><p className="authors">{p.authors}</p><h4><a href={p.link}>{p.title}</a></h4><div className="publication-meta"><span><em>{p.venue} · {p.year}</em><span className="tag">{p.type}</span></span><span><a className="research-link" href={p.link}>{p.type==='Preprint'?'[Preprint]':'[Paper / project]'}</a>{p.code && <> <a href={p.code}>[Code]</a></>}</span></div><p className="publication-note">{p.status}{p.summary && ' '+p.summary}</p></article>)}</div>)}</div>;
+}
+
+const memories=[{name:'Atlas',weight:0.45,text:'an ongoing software project'},{name:'Beacon',weight:0.90,text:'a research project'},{name:'Cedar',weight:0.20,text:'an exploratory project'}];
+function MemoryExample() {
+ const [condition,setCondition]=useState('weighted-instructed');
+ const weighted=condition.startsWith('weighted');
+ const instructed=condition.endsWith('instructed');
+ const visible=condition==='none'?[]:weighted?[...memories].sort((a,b)=>b.weight-a.weight):memories;
+ return <div className="example-box"><div className="example-top"><span className="example-label">Illustration</span><p>“Which project should I work on first?”</p></div><label className="condition-label" htmlFor="memory-condition">Memory condition</label><select id="memory-condition" value={condition} onChange={e=>setCondition(e.target.value)}><option value="none">No memory</option><option value="flat">Flat memory</option><option value="flat-instructed">Flat memory + instructions</option><option value="weighted">Weighted memory</option><option value="weighted-instructed">Weighted memory + instructions</option></select><div className="example-output" aria-live="polite" aria-atomic="true"><h3>Context supplied to the assistant</h3><ol id="example-memory">{visible.length ? visible.map(memory=><li key={memory.name}><strong>{memory.name}</strong> — {memory.text}{weighted && <span className="memory-weight">weight {memory.weight.toFixed(2)}</span>}</li>) : <li>No memory context supplied.</li>}</ol><div id="example-instruction" className="instruction-note">{instructed?'Instruction added: prioritize the available information and commit to a choice. (Paraphrased for this illustration.)':'No explicit prioritize-and-commit instruction added.'}</div><p id="example-explanation">{condition==='none'?'The assistant has no supplied memory on which to base a project priority.':weighted?'The memory is ranked and includes numerical priority signals. Whether the assistant uses those signals correctly is an empirical question.':'The assistant sees unweighted memory in alphabetical order. The order itself does not encode priority.'}</p></div><p className="example-disclaimer">Fictional inputs, simplified to three items. This illustrates prompt differences; it does not call a model or show measured responses. The evaluation's weighted conditions used a top-30 list, with no graph edges supplied.</p><a className="example-source" href="https://github.com/biditdas18/asterism/tree/nora2026-camera-ready">Inspect the actual evaluation ↗</a></div>;
+}
+
+export default function App() {
+ const [activeSection,setActiveSection]=useState('');
+ useEffect(()=>{
+  if(!('IntersectionObserver' in window))return;
+  const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting)setActiveSection(entry.target.id)}},{rootMargin:'-15% 0px -60% 0px'});
+  document.querySelectorAll('main>section').forEach(section=>observer.observe(section));
+  return ()=>observer.disconnect();
+ },[]);
+ return <>
+<a className="skip" href="#about">Skip to main content</a><header className="site-header"><div className="header-inner"><div className="identity-wrap"><a className="identity" href="#hero" aria-label="Bidit Das, home"><img src="/bidit-og.jpeg" alt="" width="50" height="50" /><h1>Bidit Das</h1></a><span className="role">Independent AI Researcher · Escalation Engineer II, AWS</span></div><nav className="main-nav" aria-label="Main navigation"><a href="#about" aria-current={activeSection === "about" ? "location" : undefined}>About</a><a href="#research" aria-current={activeSection === "research" ? "location" : undefined}>Research</a><a href="#news" aria-current={activeSection === "news" ? "location" : undefined}>News</a><a href="#publications" aria-current={activeSection === "publications" ? "location" : undefined}>Publications</a><a href="#service" aria-current={activeSection === "service" ? "location" : undefined}>Service</a><a href="#cv" aria-current={activeSection === "cv" ? "location" : undefined}>CV</a></nav></div></header>
+<main><section id="hero" className="hero" aria-labelledby="research-mission"><div className="hero-inner"><img className="portrait" src="/bidit-og.jpeg" alt="Bidit Das" width="200" height="200" /><h2 id="research-mission">Making AI more affordable, reliable, and useful.</h2></div></section>
+<section id="about" className="section"><div className="content"><h2 className="section-title">About</h2><div className="bio"><p>I am an independent AI researcher and an Escalation Engineer II at <a href="https://aws.amazon.com/">Amazon Web Services</a>. My research explores resource-efficient AI systems, the reliability of model-based evaluation, and how assistants use memory to decide what matters.</p><p>My recent work includes <a href="#paper-crucible">CRUCIBLE</a>, a framework for investigating disagreement between LLM judges; <a href="#paper-asterism">Asterism</a>, a study of weighted memory and prioritization; and <a href="#paper-essence">Essence</a>, which examines when a user's own interaction history is enough for useful recommendations. I aim to make both the findings and their limitations clear, with code that others can inspect and build on.</p><p>Previously, I worked in data engineering at Capital One and as an ML research intern at the University of Houston. My engineering background spans distributed data systems, production troubleshooting, and cloud infrastructure. I hold bachelor's and master's degrees in electrical engineering.</p><p>Alongside my research, I contribute to <a href="#service">peer review and conference service</a>. I am interested in <a href="#collaborate">collaborations</a> that put these ideas and their limitations to the test.</p></div><SocialLinks /></div></section>
+<section id="research" className="section research-highlights"><div className="content"><h2 className="section-title">Research in brief</h2><p className="section-intro">Three questions behind my recent work, the evidence so far, and what it leaves open.</p>
+<article className="research-summary"><div className="research-heading"><span className="research-number">01</span><h3>Asterism</h3><span className="research-topic">Memory &amp; prioritization</span></div><dl><dt>Question</dt><dd>Remembering a fact is different from knowing its priority. Can supplied memory weights help an assistant choose what matters?</dd><dt>Finding</dt><dd>Weighted memory and explicit instructions changed decision behavior in a controlled multi-model study. Weighted memory without commitment instructions produced higher precision than instruction-only memory in all nine measured comparisons; four 95% bootstrap intervals for the difference excluded zero.</dd><dt>Limit</dt><dd>The study supplied authored weights and ranked memory items. It did not establish useful priority learning from real conversations or a benefit from graph edges.</dd></dl><div className="artifact-links"><a href="https://github.com/biditdas18/asterism/blob/cf88a1595ccacfeb100128e42016b2bc9b2d5d63/papers/Asterism_NORA2026_camera_ready.pdf">Camera-ready paper ↗</a><a href="https://github.com/biditdas18/asterism/tree/nora2026-camera-ready">Evaluation code ↗</a><a href="#asterism-example">Explore the study conditions ↓</a></div></article>
+<article className="research-summary"><div className="research-heading"><span className="research-number">02</span><h3>CRUCIBLE</h3><span className="research-topic">Evaluation reliability</span></div><dl><dt>Question</dt><dd>When several language-model judges agree, how much confidence should we place in their labels?</dd><dt>Finding</dt><dd>A weighted agreement score can satisfy a stopping threshold while substantial disagreement remains. Human validation and prevalence-aware baselines showed why apparent convergence should not be read as a correctness guarantee.</dd><dt>Limit</dt><dd>The evidence comes from a small, domain-specific study. It does not establish broad annotation accuracy or quality parity with a larger-model system.</dd></dl><div className="artifact-links"><a href="https://github.com/biditdas18/rubric-calibration-agent/blob/fd79b5da346278c5292fa12a820a9cea0dc96e5c/papers/crucible_atracc2026.pdf">Accepted symposium paper ↗</a><a href="https://github.com/biditdas18/rubric-calibration-agent">Code &amp; validation ↗</a><a href="https://github.com/biditdas18/rubric-calibration-agent/blob/fd79b5da346278c5292fa12a820a9cea0dc96e5c/papers/crucible.pdf">Extended manuscript ↗</a></div></article>
+<article className="research-summary"><div className="research-heading"><span className="research-number">03</span><h3>Essence</h3><span className="research-topic">Personal recommendation</span></div><dl><dt>Question</dt><dd>When is a user's own history enough for recommendation, and does interest clustering improve on simpler retrieval?</dd><dt>Finding</dt><dd>The updated analysis links performance to cross-user interaction density in the evaluated cohort. It found no measurable clustering advantage over recency-weighted retrieval at the adopted settings.</dd><dt>Limit</dt><dd>Results depend on cohort selection and evaluation protocol. Personal-history-only recommendation is not a universal replacement for collaborative methods.</dd></dl><div className="artifact-links"><a href="https://github.com/biditdas18/essence/blob/01b9e75610b86d8098bef681cccb81e526d755c0/paper/essence_soict_cameraready.pdf">SOICT camera-ready paper ↗</a><a href="https://github.com/biditdas18/essence/tree/soict-2026">Study code ↗</a><a href="https://github.com/biditdas18/essence#papers-and-the-code-behind-them">Versions &amp; corrections ↗</a></div></article>
+</div></section>
+<section id="asterism-example" className="section example-section"><div className="content"><h2 className="section-title">What changes in the prompt?</h2><p className="section-intro">Explore the five Asterism conditions using the same fictional question and memory.</p><MemoryExample /></div></section>
+<section id="news" className="section"><div className="content"><h2 className="section-title">News</h2><ul className="news"><li><time datetime="2026-11">November 2026.</time> Presented <a href="#paper-asterism">Asterism</a> at NORA, AACL-IJCNLP 2026.</li><li><time datetime="2026-11-06">November 6, 2026.</time> Presented <a href="#paper-crucible">CRUCIBLE</a> in the lightning talk and poster sessions at ATRACC, part of the AAAI Fall Symposium Series.</li><li><time datetime="2026-10">October 2026.</time> The expanded <a href="#paper-essence-soict">Essence study</a> was accepted at SOICT 2026. Camera-ready materials and author registration have been submitted.</li><li><time datetime="2026-10">October 2026.</time> <a href="#paper-symbolic">Symbolic Grounding</a> was accepted for presentation at NeSyDebates, KSE 2026.</li><li><time datetime="2026-10-01">October 1, 2026.</time> Promoted to Escalation Engineer II at AWS.</li><li><time datetime="2026-09-29">September 29, 2026.</time> <a href="#paper-essence">Peer-Isolated Recommendation</a> was accepted at NewInML, NeurIPS 2026.</li></ul></div></section>
+<section id="publications" className="section"><div className="content"><h2 className="section-title">Publications</h2><div className="publication-intro"><p>Selected papers, accepted studies, and preprints.</p><p className="year-nav">Grouped by year: <a href="#year-2026">2026</a><a href="#year-2020">2020</a></p></div><Publications /><noscript><p>Please enable JavaScript for the formatted paper list, or visit <a href="https://scholar.google.com/citations?user=9dLYRD4AAAAJ&hl=en">Google Scholar</a> and <a href="https://github.com/biditdas18">GitHub</a>.</p></noscript><p className="publication-footer">Explore more on <a href="https://scholar.google.com/citations?user=9dLYRD4AAAAJ&hl=en">Google Scholar</a> or browse the <a href="https://github.com/biditdas18">research repositories</a>.</p></div></section>
+<section id="service" className="section"><div className="content"><h2 className="section-title">Research service</h2><ul className="service-list"><li><div><h3>RecSys R&amp;P Notes · 2026</h3><p>Peer reviewer</p></div><span className="service-status">Reviews completed</span></li><li><div><h3>REALM at EMNLP · 2026</h3><p>Peer reviewer</p></div><span className="service-status">Reviews completed</span></li><li><div><h3>UncertaiNLP at EMNLP · 2026</h3><p>Program committee appointment</p></div><span className="service-status">Appointment</span></li><li><div><h3>ODSC AI East · 2026</h3><p>Master of ceremonies</p></div><span className="service-status">Conference service</span></li></ul></div></section>
+<section id="collaborate" className="section collaboration-section"><div className="content"><h2 className="section-title">Collaborate</h2><p className="section-intro">I welcome independent replication and conversations about memory evaluation, reliable model-based assessment, and resource-efficient AI systems.</p><p className="collaboration-copy">If you are investigating a related question, have a useful evaluation setting, or want to test these findings, please connect on LinkedIn.</p><div className="centered"><a className="button" href="https://www.linkedin.com/in/biditdas18/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></div></div></section>
+<section id="cv" className="section cv"><div className="content"><h2 className="section-title">CV</h2><p>Please reach out on LinkedIn to request my CV.</p><a className="button" href="https://www.linkedin.com/in/biditdas18/" target="_blank" rel="noopener noreferrer">Request CV on LinkedIn ↗</a></div></section></main>
+<footer className="site-footer"><div className="footer-inner"><div><p>© 2026 Bidit Das.</p><small className="disclosure">Independent research. Views are my own.</small></div><SocialLinks /></div></footer>
+</>;
+}
