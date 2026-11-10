@@ -1,12 +1,23 @@
-# React + Vite
+# Bidit Das — research portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite source for the existing Vercel-hosted personal website.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `npm ci`
+- `npm run dev`
+- `npm run build`
+- `npm run preview`
 
-## Expanding the ESLint configuration
+## Updating content
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/App.jsx`: biography, research summaries, news, service, collaboration, LinkedIn CV request, and the fictional Asterism prompt illustration.
+- `src/data/profile.js`: publication records and profile links.
+- `src/profile.css`: responsive styling.
+- `index.html`: production search/social metadata.
+
+Keep acceptance, presentation, and publication statuses distinct. The illustration shows fictional prompt inputs, not generated or measured answers. No CV file, phone number, or unmasked email is served; CV requests go through LinkedIn. Do not restore internal employer details to public copy.
+
+## Deployment
+
+The repository has an existing Vercel integration. Use branches and pull requests; verify the deployment status associated with the merged commit and the production URL after release. Keep `vercel.json`, search verification, robots.txt, and the sitemap intact. Never commit credentials or local hosting state.
